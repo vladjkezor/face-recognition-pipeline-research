@@ -14,14 +14,16 @@ def load_data():
     if not os.path.exists(zip_path):
         print('Идет скачивание архива')
         gdown.download('https://drive.google.com/uc?id=1Kh9aYL7hehGDQpy8EuJzvDFxoyOikHeM', zip_path)
+        print('Архив скачан')
     else:
-        print('Архив  скачан')
+        print('Архив уже скачан')
     if not os.listdir(img_dir):  
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             print('Распаковка архива')
             zip_ref.extractall(data_dir)
+            print('Архив распакован')
     else:
-        print('Архив распакован')
+        print('Архив уже распакован')
 
 
 if __name__ == '__main__':
