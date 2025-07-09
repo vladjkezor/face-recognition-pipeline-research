@@ -54,7 +54,8 @@ def align_face(image, model, output_size=(128, 128)):
     src = np.array(keypoints, dtype=np.float32)[:2]
 
     M = cv2.estimateAffinePartial2D(src, template, method=cv2.LMEDS)[0]
-
+    
+    image = image * 0.5 + 0.5
     img_np = image.permute(1, 2, 0).cpu().numpy()
     img_np = (img_np * 255).astype(np.uint8)
 
