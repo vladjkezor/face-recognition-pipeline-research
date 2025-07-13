@@ -40,10 +40,16 @@ def get_landmarks_from_heatmaps(heatmaps):
 
 
 def align_face(image, model, output_size=(128, 128)):
+
     template = np.array([
-        [64 - 26, 55],  # левый глаз
-        [64 + 26, 55],  # правый глаз
+        [38, 51],
+        [73, 51],
+        [56, 71],
+        [41, 92],
+        [70, 92],
     ], dtype=np.float32)
+
+    template *= output_size[0] / 112
 
     model.eval()
     with torch.no_grad():
@@ -51,7 +57,7 @@ def align_face(image, model, output_size=(128, 128)):
         heatmaps = model(input_tensor)[-1][0].cpu()
 
     keypoints = get_landmarks_from_heatmaps(heatmaps)
-    src = np.array(keypoints, dtype=np.float32)[:2]
+    src = np.array(keypoints, dtype=np.float32)
 
     M = cv2.estimateAffinePartial2D(src, template, method=cv2.LMEDS)[0]
     
