@@ -51,7 +51,7 @@
 
 ### 4. `4_open_source_solutions.ipynb`
 
-- Обзор 3 open source библиотек для задачи face recognition
+- Обзор 3-х open source библиотек для задачи face recognition
   - Описание
   - Установка
   - Тестирование
