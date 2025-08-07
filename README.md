@@ -18,6 +18,7 @@
 │   ├── 1_FaceAlignment.ipynb # Обучение SHG и выравнивание лиц
 │   ├── 2_FaceRecognition.ipynb # Обучение моделей и метрика IR
 │   ├── 3_Pipeline.ipynb # Полный пайплайн: от картинки до эмбеддинга
+│   ├── 4_open_source_solutions.ipynb # Доп задание с обзором библиотек
 │   └── models/ # Сохранённые модели и веса
 │
 ├── src/
